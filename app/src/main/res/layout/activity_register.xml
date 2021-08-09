@@ -60,6 +60,8 @@
     <EditText
         android:id="@+id/etDob"
         android:layout_width="match_parent"
+        android:focusable="false"
+        android:clickable="false"
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="DOB"
@@ -72,6 +74,7 @@
         android:hint="Gender" />
 
         <RadioGroup
+            android:id="@+id/rbGender"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">

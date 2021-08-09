@@ -1,9 +1,11 @@
 package com.example.newtrainigproject;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -12,16 +14,25 @@ public class MainActivity extends AppCompatActivity {
     EditText etUser;
     EditText etPassword;
     Button btSubmit;
+    TextView tvNew;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initItems();
+        tvNew.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(MainActivity.this,RegisterActivity.class);
+                startActivity(i);
+            }
+        });
         btSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 checkdata();
+
             }
         });
 
@@ -31,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         etUser = findViewById(R.id.etUser);
         etPassword = findViewById(R.id.etPassword);
         btSubmit = findViewById(R.id.btSubmit);
+        tvNew=findViewById(R.id.tvNew);
 
     }
 

@@ -20,9 +20,9 @@ public class LoginRegistrationdb {
     private static final String COL_HOBBIES = "hobbies";
     private static final String TABLE_REGISTRATION = "registration";
 
-    public static final String CREATE_TABLE_REGISTRATION = "create table if not exists " + TABLE_REGISTRATION + " (" + COL_ID + " INTEGER AUTOINCREMENT PRIMARY KEY," + COL_UNAME +
-            "text not null," + COL_PASS + "text not null ," + COL_EMAIL + " text not null," + COL_PH_NUMBER + "integer," + COL_AGE + "INTEGER," + COL_DOB + "text," + COL_GENDER +
-            "text," + COL_HOBBIES + "text )";
+    public static final String CREATE_TABLE_REGISTRATION = "create table if not exists " + TABLE_REGISTRATION + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_UNAME +
+            " text not null," + COL_PASS + " text not null ," + COL_EMAIL + " text not null," + COL_PH_NUMBER + " text," + COL_AGE + " INTEGER," + COL_DOB + " text," + COL_GENDER +
+            " text," + COL_HOBBIES + " text )";
     public static final String DROP_TABLE_REGISTRATION = "drop table if exists" + TABLE_REGISTRATION;
     DbRegistration dbConnection;
     Context context;
@@ -44,7 +44,6 @@ public class LoginRegistrationdb {
         values.put(COL_PH_NUMBER, loginRegModel1.getPh_number());
         values.put(COL_EMAIL, loginRegModel1.getEmail());
         sq.insert(TABLE_REGISTRATION, null, values);
-        sq.close();
     }
 
     @SuppressLint("Range")

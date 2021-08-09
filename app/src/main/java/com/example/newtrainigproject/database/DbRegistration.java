@@ -15,6 +15,7 @@ public class DbRegistration extends SQLiteOpenHelper {
         this.context=context;
 
     }
+
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(LoginRegistrationdb.CREATE_TABLE_REGISTRATION);
