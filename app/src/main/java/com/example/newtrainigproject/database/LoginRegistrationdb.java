@@ -26,7 +26,6 @@ public class LoginRegistrationdb {
     public static final String DROP_TABLE_REGISTRATION = "drop table if exists" + TABLE_REGISTRATION;
     DbRegistration dbConnection;
     Context context;
-
     public LoginRegistrationdb(Context context) {
         this.context = context;
         dbConnection = new DbRegistration(context);

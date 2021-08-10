@@ -7,6 +7,9 @@
     <string name="forget_password">Forget Password …?</string>
     <string name="reg">Registration Form</string>
     <string name="email">Email</string>
-    <string name="submit">Submit</string>
     <string name="new_registration_form">New Registration form</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="reset">Reset</string>
+    <string name="submit">Submit</string>
 </resources>

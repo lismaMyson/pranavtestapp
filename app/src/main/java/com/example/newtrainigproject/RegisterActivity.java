@@ -8,6 +8,7 @@ import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
@@ -32,7 +33,10 @@ public class RegisterActivity extends AppCompatActivity {
     CheckBox cbDancing;
     CheckBox cbAgree;
     Button btSubmit;
+    Button btReset;
     RadioGroup rbGender;
+    RadioButton rbMale;
+    RadioButton rbFemale;
     Calendar myCalender = Calendar.getInstance();
     Context context;
     LoginRegistrationdb loginRegistrationdb;
@@ -50,10 +54,13 @@ public class RegisterActivity extends AppCompatActivity {
         etAge = findViewById(R.id.etAge);
         etDob = findViewById(R.id.etDob);
         cbDrawing = findViewById(R.id.cbDrawing);
+        rbMale=findViewById(R.id.rbMale);
+        rbFemale=findViewById(R.id.rbFemale);
         cbSinging = findViewById(R.id.cbSinging);
         cbDancing = findViewById(R.id.cbDancing);
         cbAgree = findViewById(R.id.cbAgree);
         btSubmit = findViewById(R.id.btSubmit);
+        btReset=findViewById(R.id.btReset);
         rbGender = findViewById(R.id.rbGender);
         rbGender.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
             @Override
@@ -83,6 +90,13 @@ public class RegisterActivity extends AppCompatActivity {
                 datePickerDialog.show();
             }
         });
+        btReset.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                clearForm();
+            }
+        });
+
 
         btSubmit.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -93,7 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
                     toastCommon("Enter a valid password");
                 } else if (etEmail.getText().toString().trim().equals("")) {
                     toastCommon("Enter a valid email");
-                } else if (etphNumber.getText().toString().trim().equals("") || etphNumber.getText().toString().length() <= 10) {
+                } else if (etphNumber.getText().toString().trim().equals("") || etphNumber.getText().toString().length() < 10) {
                     toastCommon("Enter a valid phone number");
                 } else if (!cbAgree.isChecked()) {
                     toastCommon("Plz agree terms and conditions");
@@ -112,14 +126,26 @@ public class RegisterActivity extends AppCompatActivity {
                         hobbies += "dancing";
                     }
                     register();
+                    clearForm();
                 }
-
-
             }
 
         });
     }
-
+    private  void clearForm(){
+        etName.setText("");
+        editPass.setText("");
+        etEmail.setText("");
+        etphNumber.setText("");
+        etAge.setText("");
+        etDob.setText("");
+        cbDrawing.setChecked(false);
+        cbSinging.setChecked(false);
+        cbDancing.setChecked(false);
+        rbMale.setChecked(false);
+        rbFemale.setChecked(false);
+        cbAgree.setChecked(false);
+    }
     private void register() {
         LoginRegModel mLoginRegModel=new LoginRegModel();
         mLoginRegModel.setUname(etEmail.getText().toString());
@@ -132,7 +158,6 @@ public class RegisterActivity extends AppCompatActivity {
         mLoginRegModel.setEmail(etEmail.getText().toString());
         loginRegistrationdb.insertIntoLogin(mLoginRegModel);
     }
-
     private void toastCommon(String message) {
         Toast t = Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG);
         t.show();
