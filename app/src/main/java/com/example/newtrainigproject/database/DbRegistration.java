@@ -24,6 +24,10 @@ public class DbRegistration extends SQLiteOpenHelper {
 
     @Override
     public void onUpgrade(SQLiteDatabase sqLiteDatabase ,  int i, int i1) {
+        sqLiteDatabase.execSQL(LoginRegistrationdb.CREATE_TABLE_REGISTRATION);
+        sqLiteDatabase.execSQL(LoginRegistrationdb.DROP_TABLE_REGISTRATION);
+
+
 
 
     }

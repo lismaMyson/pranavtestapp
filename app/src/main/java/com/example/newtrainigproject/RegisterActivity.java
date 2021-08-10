@@ -149,6 +149,7 @@ public class RegisterActivity extends AppCompatActivity {
     private void register() {
         LoginRegModel mLoginRegModel=new LoginRegModel();
         mLoginRegModel.setUname(etEmail.getText().toString());
+        mLoginRegModel.setName(etName.getText().toString());
         mLoginRegModel.setPassword(editPass.getText().toString());
         mLoginRegModel.setAge(etAge.getText().toString());
         mLoginRegModel.setDate_of_birth(etDob.getText().toString());

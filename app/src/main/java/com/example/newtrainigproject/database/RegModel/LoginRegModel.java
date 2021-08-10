@@ -2,6 +2,7 @@ package com.example.newtrainigproject.database.RegModel;
 
 public class LoginRegModel {
    private String uname;
+   private String name;
    private String _id;
    private String password;
    private String email;
@@ -84,5 +85,13 @@ public class LoginRegModel {
 
     public void set_id(String _id) {
         this._id = _id;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 }
