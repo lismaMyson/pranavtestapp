@@ -17,4 +17,7 @@
     <string name="drawing">Drawing</string>
     <string name="hobbies">Hobbies</string>
     <string name="agree_terms_and_conditions">Agree Terms and Conditions</string>
+    <string name="sl_no">SlNo</string>
+    <string name="name">Name</string>
+    <string name="age">Age</string>
 </resources>

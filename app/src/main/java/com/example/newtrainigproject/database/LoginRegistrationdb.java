@@ -8,6 +8,9 @@ import android.database.sqlite.SQLiteDatabase;
 
 import com.example.newtrainigproject.database.RegModel.LoginRegModel;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class LoginRegistrationdb {
     private static final String COL_ID = "_id";
     private static final String COL_NAME = "name";
@@ -64,12 +67,40 @@ public class LoginRegistrationdb {
                 loginRegModel.setHobbies(cursor.getString(cursor.getColumnIndex(COL_HOBBIES)));
                 loginRegModel.setGender(cursor.getString(cursor.getColumnIndex(COL_GENDER)));
                 loginRegModel.setDate_of_birth(cursor.getString(cursor.getColumnIndex(COL_DOB)));
-
             }
             cursor.close();
         }
         sq.close();
         return loginRegModel;
     }
+
+    @SuppressLint("Range")
+    public List<LoginRegModel> getAllUsers() {
+        List<LoginRegModel> modelList = new ArrayList<>();
+        SQLiteDatabase sq = dbConnection.getReadableDatabase();
+        Cursor cursor = sq.rawQuery("select * from " + TABLE_REGISTRATION, null);
+        if (cursor != null) {
+            if (cursor.moveToFirst()) {
+
+                do {
+                    LoginRegModel loginRegModel = new LoginRegModel();
+                    loginRegModel.setUname(cursor.getString(cursor.getColumnIndex(COL_UNAME)));
+                    loginRegModel.setPassword(cursor.getString(cursor.getColumnIndex(COL_PASS)));
+                    loginRegModel.setName(cursor.getString(cursor.getColumnIndex(COL_NAME)));
+                    loginRegModel.setEmail(cursor.getString(cursor.getColumnIndex(COL_EMAIL)));
+                    loginRegModel.setAge(cursor.getString(cursor.getColumnIndex(COL_AGE)));
+                    loginRegModel.setPh_number(cursor.getString(cursor.getColumnIndex(COL_PH_NUMBER)));
+                    loginRegModel.setHobbies(cursor.getString(cursor.getColumnIndex(COL_HOBBIES)));
+                    loginRegModel.setGender(cursor.getString(cursor.getColumnIndex(COL_GENDER)));
+                    loginRegModel.setDate_of_birth(cursor.getString(cursor.getColumnIndex(COL_DOB)));
+                }while (cursor.moveToNext());
+            }
+            cursor.close();
+        }
+
+sq.close();
+        return modelList;
+    }
+
 
 }
