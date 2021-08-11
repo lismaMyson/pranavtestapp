@@ -81,7 +81,6 @@ public class LoginRegistrationdb {
         Cursor cursor = sq.rawQuery("select * from " + TABLE_REGISTRATION, null);
         if (cursor != null) {
             if (cursor.moveToFirst()) {
-
                 do {
                     LoginRegModel loginRegModel = new LoginRegModel();
                     loginRegModel.setUname(cursor.getString(cursor.getColumnIndex(COL_UNAME)));
@@ -93,6 +92,7 @@ public class LoginRegistrationdb {
                     loginRegModel.setHobbies(cursor.getString(cursor.getColumnIndex(COL_HOBBIES)));
                     loginRegModel.setGender(cursor.getString(cursor.getColumnIndex(COL_GENDER)));
                     loginRegModel.setDate_of_birth(cursor.getString(cursor.getColumnIndex(COL_DOB)));
+                    modelList.add(loginRegModel);
                 }while (cursor.moveToNext());
             }
             cursor.close();
