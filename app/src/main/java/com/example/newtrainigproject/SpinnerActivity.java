@@ -40,16 +40,17 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
             public void onClick(View view) {
                 if (etFavFilm==null||etFavFilm.getText().toString().trim().equals("")){
                     toastCommon("Enter a valid film");
-                }else {
+                }else if(filmActorsTable.checkActor(spValue,etFavFilm.getText().toString().trim())){
+                    toastCommon("film name already added");
+                } else {
                     toastCommon("success");
 
                 }
                 film();
                 clearForm();
-
             }
-
         });
+
 
     }private void clearForm(){
         etFavFilm.setText("");

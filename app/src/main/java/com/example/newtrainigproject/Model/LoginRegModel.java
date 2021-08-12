@@ -10,7 +10,7 @@ public class LoginRegModel {
    private String ph_number;
    private String age;
    private String date_of_birth;
-  private   String gender;
+  private  String gender;
 
     public LoginRegModel(){
     }
