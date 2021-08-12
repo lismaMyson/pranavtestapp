@@ -10,27 +10,27 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.newtrainigproject.database.DbRegistration;
-import com.example.newtrainigproject.database.LoginRegistrationdb;
-import com.example.newtrainigproject.database.RegModel.LoginRegModel;
+import com.example.newtrainigproject.database.LoginRegistrationTable;
+import com.example.newtrainigproject.Model.LoginRegModel;
 
 public class MainActivity extends AppCompatActivity {
     EditText etUser;
     EditText etPassword;
     Button btSubmit;
     TextView tvNew;
-    LoginRegistrationdb loginRegistrationdb;
+    LoginRegistrationTable loginRegistrationTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         initItems();
-        loginRegistrationdb=new LoginRegistrationdb(this);
+        loginRegistrationTable =new LoginRegistrationTable(this);
         tvNew.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent i=new Intent(MainActivity.this,RegisterActivity.class);
+                finish();
                 startActivity(i);
             }
         });
@@ -38,12 +38,15 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 if (checkdata()){
-                    LoginRegModel loginRegModel=loginRegistrationdb.checkLogin(etUser.getText().toString().trim(),etPassword.getText().toString().trim());
+                    LoginRegModel loginRegModel= loginRegistrationTable.checkLogin(etUser.getText().toString().trim(),etPassword.getText().toString().trim());
                     if (loginRegModel.getName()!=null){
                         Toast t=Toast.makeText(MainActivity.this,"Login Success",Toast.LENGTH_LONG);
                         t.show();
                         Intent i=new Intent(MainActivity.this,HomeActivity.class);
                         startActivity(i);
+                    }else {
+                        Toast t=Toast.makeText(MainActivity.this,"Login failed",Toast.LENGTH_LONG);
+                        t.show();
                     }
                 }
             }

@@ -1,4 +1,4 @@
-package com.example.newtrainigproject.database.RegModel;
+package com.example.newtrainigproject.Model;
 
 public class LoginRegModel {
    private String uname;

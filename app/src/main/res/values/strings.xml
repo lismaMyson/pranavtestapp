@@ -20,4 +20,12 @@
     <string name="sl_no">SlNo</string>
     <string name="name">Name</string>
     <string name="age">Age</string>
+    <string name="view">View</string>
+    <string name="add">ADD</string>
+    <string name="select_fruit">Select fruit</string>
+    <string name="select_places">Select places</string>
+    <string name="flim_actors">Flim actors</string>
+    <string name="favorate_film">Favorate film</string>
+    <string name="favorate_flim">Favorate flim</string>
+    <string name="favorite_film">Favorite Film</string>
 </resources>

@@ -6,12 +6,12 @@ import android.content.Context;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 
-import com.example.newtrainigproject.database.RegModel.LoginRegModel;
+import com.example.newtrainigproject.Model.LoginRegModel;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LoginRegistrationdb {
+public class LoginRegistrationTable {
     private static final String COL_ID = "_id";
     private static final String COL_NAME = "name";
     private static final String COL_UNAME = "uname";
@@ -27,11 +27,11 @@ public class LoginRegistrationdb {
     public static final String CREATE_TABLE_REGISTRATION = "create table if not exists " + TABLE_REGISTRATION + " (" + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + COL_NAME + " text not null, " + COL_UNAME +
             " text not null," + COL_PASS + " text not null ," + COL_EMAIL + " text not null," + COL_PH_NUMBER + " text," + COL_AGE + " INTEGER," + COL_DOB + " text," + COL_GENDER +
             " text," + COL_HOBBIES + " text )";
-    public static final String DROP_TABLE_REGISTRATION = "drop table if exists" + TABLE_REGISTRATION;
+    public static final String DROP_TABLE_REGISTRATION = " drop table if exists " + TABLE_REGISTRATION;
     DbRegistration dbConnection;
     Context context;
 
-    public LoginRegistrationdb(Context context) {
+    public LoginRegistrationTable(Context context) {
         this.context = context;
         dbConnection = new DbRegistration(context);
     }
@@ -93,12 +93,12 @@ public class LoginRegistrationdb {
                     loginRegModel.setGender(cursor.getString(cursor.getColumnIndex(COL_GENDER)));
                     loginRegModel.setDate_of_birth(cursor.getString(cursor.getColumnIndex(COL_DOB)));
                     modelList.add(loginRegModel);
-                }while (cursor.moveToNext());
+                } while (cursor.moveToNext());
             }
             cursor.close();
         }
 
-sq.close();
+        sq.close();
         return modelList;
     }
 

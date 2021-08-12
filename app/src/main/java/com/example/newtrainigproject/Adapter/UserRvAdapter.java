@@ -10,7 +10,7 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.newtrainigproject.R;
-import com.example.newtrainigproject.database.RegModel.LoginRegModel;
+import com.example.newtrainigproject.Model.LoginRegModel;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -14,8 +14,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.newtrainigproject.database.LoginRegistrationdb;
-import com.example.newtrainigproject.database.RegModel.LoginRegModel;
+import com.example.newtrainigproject.database.LoginRegistrationTable;
+import com.example.newtrainigproject.Model.LoginRegModel;
 
 import java.util.Calendar;
 
@@ -39,14 +39,14 @@ public class RegisterActivity extends AppCompatActivity {
     RadioButton rbFemale;
     Calendar myCalender = Calendar.getInstance();
     Context context;
-    LoginRegistrationdb loginRegistrationdb;
+    LoginRegistrationTable loginRegistrationTable;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_register);
         context = this;
-        loginRegistrationdb = new LoginRegistrationdb(context);
+        loginRegistrationTable = new LoginRegistrationTable(context);
         etName = findViewById(R.id.etName);
         editPass = findViewById(R.id.editPass);
         etEmail = findViewById(R.id.etEmail);
@@ -157,7 +157,7 @@ public class RegisterActivity extends AppCompatActivity {
         mLoginRegModel.setHobbies(hobbies);
         mLoginRegModel.setPh_number(etphNumber.getText().toString());
         mLoginRegModel.setEmail(etEmail.getText().toString());
-        loginRegistrationdb.insertIntoLogin(mLoginRegModel);
+        loginRegistrationTable.insertIntoLogin(mLoginRegModel);
     }
     private void toastCommon(String message) {
         Toast t = Toast.makeText(RegisterActivity.this, message, Toast.LENGTH_LONG);
