@@ -8,7 +8,7 @@ import androidx.annotation.Nullable;
 
 public class DbRegistration extends SQLiteOpenHelper {
     private static final String DATABASE_NAME="dbTest";
-    private static final int DB_VERSION=2;
+    private static final int DB_VERSION=3;
             Context context;
     public DbRegistration(@Nullable Context context){
         super(context,DATABASE_NAME,null,DB_VERSION);
@@ -19,7 +19,8 @@ public class DbRegistration extends SQLiteOpenHelper {
     @Override
     public void onCreate(SQLiteDatabase sqLiteDatabase) {
         sqLiteDatabase.execSQL(LoginRegistrationTable.CREATE_TABLE_REGISTRATION);
-        sqLiteDatabase.execSQL(FilmActorsTable.CREATE_TABLE_FILM_ACTORS);
+        sqLiteDatabase.execSQL(FilmActorsMainTable.CREATE_TABLE_FILM_ACTORS);
+        sqLiteDatabase.execSQL(FormActorSubTable.CREATE_TABLE_FORM_ACTORS);
 
     }
 
@@ -29,7 +30,9 @@ public class DbRegistration extends SQLiteOpenHelper {
 
         sqLiteDatabase.execSQL(LoginRegistrationTable.DROP_TABLE_REGISTRATION);
         sqLiteDatabase.execSQL(LoginRegistrationTable.CREATE_TABLE_REGISTRATION);
-        sqLiteDatabase.execSQL(FilmActorsTable.CREATE_TABLE_FILM_ACTORS);
+        sqLiteDatabase.execSQL(FilmActorsMainTable.CREATE_TABLE_FILM_ACTORS);
+        sqLiteDatabase.execSQL(FormActorSubTable.CREATE_TABLE_FORM_ACTORS);
+        sqLiteDatabase.execSQL(FormActorSubTable.DROP_TABLE_FORM_ACTORS);
 
 
 

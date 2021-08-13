@@ -3,9 +3,11 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_actor_form.xml" value="0.1796875" />
         <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_actors_list.xml" value="0.165625" />
         <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_home.xml" value="0.22" />
         <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_main_register.xml" value="0.1796875" />
         <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_register.xml" value="0.1796875" />
         <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_spinner.xml" value="0.1796875" />
         <entry key="..\:/git test/register/pranavtestapp/app/src/main/res/layout/activity_view_actor.xml" value="0.1796875" />

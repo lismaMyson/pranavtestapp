@@ -68,7 +68,16 @@
             android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="@string/view"/>
+        <Button
+            android:id="@+id/btActor"
+            android:layout_marginStart="2dp"
+            android:layout_width="wrap_content"
+            android:textColor="@color/black"
+            android:layout_height="wrap_content"
+            android:text="Add actor" />
     </LinearLayout>
+
+
 
 
 </LinearLayout>

@@ -12,35 +12,51 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.Toast;
 
+import com.example.newtrainigproject.Adapter.ActorRvAdapter;
+import com.example.newtrainigproject.Model.FormActorModel;
 import com.example.newtrainigproject.Model.ModelSpinner;
-import com.example.newtrainigproject.database.FilmActorsTable;
+import com.example.newtrainigproject.database.FilmActorsMainTable;
+import com.example.newtrainigproject.database.FormActorSubTable;
+
+import java.util.ArrayList;
+import java.util.List;
 
 public class SpinnerActivity extends AppCompatActivity implements AdapterView.OnItemSelectedListener {
     String[] actors={"MohanLal","Mamooty","Dileep","AlluArjun"};
     EditText etFavFilm;
     Button btSub;
     Context context;
-    FilmActorsTable filmActorsTable;
+    FilmActorsMainTable filmActorsMainTable;
+    FormActorSubTable mFormActorSubTable;
     String spValue;
+    List<FormActorModel>formActorModelList= new ArrayList<>();
+    List<String>formActors=new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         context=this;
-        filmActorsTable =new FilmActorsTable(context);
+        filmActorsMainTable =new FilmActorsMainTable(context);
         setContentView(R.layout.activity_spinner);
+        mFormActorSubTable=new FormActorSubTable(context);
+        formActorModelList=mFormActorSubTable.getAllActors();
         etFavFilm=findViewById(R.id.etFavFilm);
         btSub=findViewById(R.id.btSub);
         Spinner spinner=(Spinner) findViewById(R.id.spActors);
         spinner.setOnItemSelectedListener(SpinnerActivity.this);
-        ArrayAdapter arrayAdapter=new ArrayAdapter(context, android.R.layout.simple_spinner_item,actors);
+        for(int i=0;i<formActorModelList.size();i++){
+            FormActorModel modelSpinner=formActorModelList.get(i);
+            formActors.add(modelSpinner.getActors());
+        }
+        ArrayAdapter arrayAdapter=new ArrayAdapter(context, android.R.layout.simple_spinner_item,formActors);
         arrayAdapter.setDropDownViewResource(android.R.layout.simple_spinner_item);
         spinner.setAdapter(arrayAdapter);
+
         btSub.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if (etFavFilm==null||etFavFilm.getText().toString().trim().equals("")){
                     toastCommon("Enter a valid film");
-                }else if(filmActorsTable.checkActor(spValue,etFavFilm.getText().toString().trim())){
+                }else if(filmActorsMainTable.checkActor(spValue,etFavFilm.getText().toString().trim())){
                     toastCommon("film name already added");
                 } else {
                     toastCommon("success");
@@ -60,7 +76,7 @@ public class SpinnerActivity extends AppCompatActivity implements AdapterView.On
         ModelSpinner modelSpinner=new ModelSpinner();
         modelSpinner.setActors(spValue);
         modelSpinner.setFilm(etFavFilm.getText().toString());
-        filmActorsTable.insertIntoLogin(modelSpinner);
+        filmActorsMainTable.insertIntoLogin(modelSpinner);
 
     }
 

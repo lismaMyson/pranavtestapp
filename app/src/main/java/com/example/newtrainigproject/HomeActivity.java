@@ -21,6 +21,7 @@ import java.util.List;
 public class HomeActivity extends AppCompatActivity {
     Button btAdd;
     Button btView;
+    Button btActor;
     RecyclerView rvHome;
     LoginRegistrationTable mLoginRegModel;
     Context context;
@@ -34,6 +35,7 @@ public class HomeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_home);
         btAdd=findViewById(R.id.btAdd);
         btView=findViewById(R.id.btView);
+        btActor=findViewById(R.id.btActor);
         rvHome=findViewById(R.id.rvHome);
         mLoginRegModel=new LoginRegistrationTable(context);
         Adapter=new UserRvAdapter(context,loginRegModel);
@@ -54,6 +56,14 @@ public class HomeActivity extends AppCompatActivity {
             public void onClick(View view) {
                 Intent i=new Intent(context,SpinnerActivity.class);
                 startActivity(i);
+            }
+        });
+        btActor.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i=new Intent(context,ActorFormActivity.class);
+                startActivity(i);
+
             }
         });
     }

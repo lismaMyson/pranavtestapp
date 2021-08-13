@@ -11,7 +11,7 @@ import com.example.newtrainigproject.Model.ModelSpinner;
 import java.util.ArrayList;
 import java.util.List;
 
-public class FilmActorsTable {
+public class FilmActorsMainTable {
     private static final String COL_ID = "id";
     private static final String COL_ACTORS = "actors";
     private static final String COL_FILM = "film";
@@ -22,7 +22,7 @@ public class FilmActorsTable {
     DbRegistration dbConnection;
     Context context;
 
-    public FilmActorsTable(Context context) {
+    public FilmActorsMainTable(Context context) {
         this.context = context;
         dbConnection = new DbRegistration(context);
     }
